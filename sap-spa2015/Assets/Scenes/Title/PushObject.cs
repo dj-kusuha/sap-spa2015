@@ -60,9 +60,6 @@ public class PushObject : MonoBehaviour {
 
         Debug.Log( "PushId : " + payload.PushId );
         Debug.Log( "Massage : " + payload.Message );
-        foreach( DictionaryEntry de in payload.UserInfo ) {
-            Debug.Log( "UserInfo: " + de.Key + " / " + de.Value );
-        }
     }
 
     /// <summary>

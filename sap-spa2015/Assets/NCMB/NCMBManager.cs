@@ -202,7 +202,7 @@ namespace NCMB
 		/// ペイロードのユーザー情報 (iOSのみ)
 		/// </summary>
 		/// <value>The user info.</value>
-		public IDictionary UserInfo { get; protected set; }
+		//public IDictionary UserInfo { get; protected set; }
 
 		internal NCMBPushPayload (string pushId, string data, string title, string message, string channel, string dialog, string richUrl, IDictionary userInfo = null)
 		{
@@ -213,7 +213,7 @@ namespace NCMB
 			//Channel = channel;
 			//Dialog = (dialog == "true" || dialog == "TRUE" || dialog == "True" || dialog == "1") ? true : false;
 			//RichUrl = richUrl;
-			UserInfo = userInfo;
+			//UserInfo = userInfo;
 		}
 	}
 }
