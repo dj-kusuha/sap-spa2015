@@ -86,7 +86,7 @@ public class TuntunManager : MonoBehaviour {
             Debug.Log( "checked!" );
 
             SetChecked( true );
-            this.timer = 10f;
+            this.timer = 180f;
         }
     }
 }
