@@ -6,10 +6,6 @@ using System.Collections.Generic;
 public class TuntunManager : MonoBehaviour
 {
 
-    
-    [SerializeField]
-    private UnityEngine.UI.Text text;
-
     [SerializeField]
     private AudioSource tapSESource;
 
@@ -115,8 +111,6 @@ public class TuntunManager : MonoBehaviour
 #if UNITY_ANDROID
         Debug.Log("Title : " + payload.Title);
 #endif
-
-        this.text.text = payload.ToString();
     }
 
 
