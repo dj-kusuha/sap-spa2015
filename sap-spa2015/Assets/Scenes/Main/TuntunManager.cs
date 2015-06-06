@@ -1,5 +1,6 @@
 ﻿using NCMB;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TuntunManager : MonoBehaviour {
 
@@ -9,18 +10,33 @@ public class TuntunManager : MonoBehaviour {
     [SerializeField]
     private Node node;
 
+    [Header( "Check Objects" )]
     [SerializeField]
-    private GameObject checkedTextObject;
+    private Button tuntunButton;
+    [SerializeField]
+    private GameObject noCheckedObject;
+    [SerializeField]
+    private GameObject checkedObject;
 
     private SelectManager.FriendData selectFriendData;
 
+    private float timer;
+
     private void Start() {
-        this.checkedTextObject.SetActive( false );
+        SetChecked( false );
 
         this.selectFriendData = GameObject.FindObjectOfType<Node>().FriendData;
         this.node.SetData( this.selectFriendData );
     }
 
+    private void Update() {
+        if( this.timer > 0 ) {
+            this.timer -= Time.deltaTime;
+            if( this.timer <= 0 ) {
+                SetChecked( false );
+            }
+        }
+    }
 
     private void OnEnable() {
         NCMBManager.onNotificationReceived += OnNotificationReceived;
@@ -30,6 +46,14 @@ public class TuntunManager : MonoBehaviour {
         NCMBManager.onNotificationReceived -= OnNotificationReceived;
     }
 
+
+    private void SetChecked( bool checkdFlag ) {
+        this.tuntunButton.enabled = !checkdFlag;
+        this.noCheckedObject.SetActive( !checkdFlag );
+        this.checkedObject.SetActive( checkdFlag );
+    }
+
+    
     public void OnClickTuntunButton() {
         Debug.Log( "OnClickTuntunButton" );
 
@@ -61,7 +85,8 @@ public class TuntunManager : MonoBehaviour {
         if( payload.Message == "checked" ) {
             Debug.Log( "checked!" );
 
-            this.checkedTextObject.SetActive( true );
+            SetChecked( true );
+            this.timer = 10f;
         }
     }
 }
