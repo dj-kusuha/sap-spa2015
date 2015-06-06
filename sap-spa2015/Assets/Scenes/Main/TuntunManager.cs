@@ -6,9 +6,12 @@ using System.Collections.Generic;
 public class TuntunManager : MonoBehaviour
 {
 
+    
     [SerializeField]
     private UnityEngine.UI.Text text;
 
+    [SerializeField]
+    private AudioSource tapSESource;
 
     private static bool _isInitialized = false;
 
@@ -16,11 +19,13 @@ public class TuntunManager : MonoBehaviour
     {
         Debug.Log("OnClickTuntunButton");
 
+        this.tapSESource.Play();
+
         var push = new NCMBPush()
         {
             PushToIOS = true,
             PushToAndroid = false,
-            Message = "testSendPush",
+            Message = "tuntunさんからつんつんされています！",
             BadgeIncrementFlag = true,
             Category = "INVITE_CATEGORY",
         };
