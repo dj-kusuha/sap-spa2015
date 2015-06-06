@@ -21,7 +21,7 @@ public class SelectManager : MonoBehaviour
         // TODO debug
         int cnt = 0;
         GameObject currentGroup = null;
-        for (int i = 0; i < 100; ++i)
+        for (int i = 0; i < 4; ++i)
         {
             // 対象となるgroupがなかったら生成
             if (currentGroup == null)
@@ -37,7 +37,7 @@ public class SelectManager : MonoBehaviour
 
             // 個数上限を超えたらcurrentGroupをnullにしておく
             cnt++;
-            if (cnt % 4 == 0) { 
+            if (cnt % 2 == 0) { 
 				currentGroup = null;
 			}
         }
