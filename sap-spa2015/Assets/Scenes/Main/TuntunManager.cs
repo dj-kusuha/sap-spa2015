@@ -1,10 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using NCMB;
-using System.Collections.Generic;
+﻿using NCMB;
+using UnityEngine;
 
-public class TuntunManager : MonoBehaviour
-{
+public class TuntunManager : MonoBehaviour {
 
     [SerializeField]
     private AudioSource tapSESource;
@@ -12,9 +9,14 @@ public class TuntunManager : MonoBehaviour
     [SerializeField]
     private Node node;
 
+    [SerializeField]
+    private GameObject checkedTextObject;
+
     private SelectManager.FriendData selectFriendData;
 
     private void Start() {
+        this.checkedTextObject.SetActive( false );
+
         this.selectFriendData = GameObject.FindObjectOfType<Node>().FriendData;
         this.node.SetData( this.selectFriendData );
     }
@@ -23,13 +25,13 @@ public class TuntunManager : MonoBehaviour
     private void OnEnable() {
         NCMBManager.onNotificationReceived += OnNotificationReceived;
     }
+
     private void OnDisable() {
         NCMBManager.onNotificationReceived -= OnNotificationReceived;
     }
 
-    public void OnClickTuntunButton()
-    {
-        Debug.Log("OnClickTuntunButton");
+    public void OnClickTuntunButton() {
+        Debug.Log( "OnClickTuntunButton" );
 
         // 回数インクリメント
         this.selectFriendData.sendTuntun++;
@@ -40,8 +42,7 @@ public class TuntunManager : MonoBehaviour
         // SE再生
         this.tapSESource.Play();
 
-        var push = new NCMBPush()
-        {
+        var push = new NCMBPush() {
             PushToIOS = true,
             PushToAndroid = false,
             Message = "tuntunさんからつんつんされています！",
@@ -59,7 +60,8 @@ public class TuntunManager : MonoBehaviour
     private void OnNotificationReceived( NCMBPushPayload payload ) {
         if( payload.Message == "checked" ) {
             Debug.Log( "checked!" );
+
+            this.checkedTextObject.SetActive( true );
         }
     }
 }
-
