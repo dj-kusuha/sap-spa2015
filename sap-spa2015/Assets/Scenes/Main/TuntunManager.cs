@@ -13,12 +13,20 @@ public class TuntunManager : MonoBehaviour
     [SerializeField]
     private AudioSource tapSESource;
 
-    private static bool _isInitialized = false;
+    private SelectManager.FriendData selectFriendData;
+
+    private void Start() {
+        this.selectFriendData = GameObject.FindObjectOfType<Node>().FriendData;
+    }
 
     public void OnClickTuntunButton()
     {
         Debug.Log("OnClickTuntunButton");
 
+        // 回数インクリメント
+        this.selectFriendData.sendTuntun++;
+
+        // SE再生
         this.tapSESource.Play();
 
         var push = new NCMBPush()
@@ -32,6 +40,18 @@ public class TuntunManager : MonoBehaviour
 
         push.SendPush();
     }
+
+    public void OnClickBackButton() {
+        Application.LoadLevel( "Select" );
+    }
+
+
+
+
+
+
+
+
 
     /// <summary>
     ///イベントリスナーの登録
@@ -99,21 +119,6 @@ public class TuntunManager : MonoBehaviour
         this.text.text = payload.ToString();
     }
 
-    /// <summary>
-    ///シーンを跨いでGameObjectを利用する
-    /// </summary>
-    public virtual void Awake()
-    {
-        if (!TuntunManager._isInitialized)
-        {
-            TuntunManager._isInitialized = true;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
 
 }
 

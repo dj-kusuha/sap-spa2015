@@ -9,9 +9,11 @@ EditorBuildSettings:
     path: Assets/Test/Test.unity
   - enabled: 0
     path: Assets/Samples/PushSample/NCMBPushSample.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Title/Title.unity
   - enabled: 0
     path: Assets/Scenes/Select/Select.unity
   - enabled: 1
     path: Assets/Scenes/Main/Main.unity
+  - enabled: 1
+    path: Assets/Scenes/Select/Select.unity
