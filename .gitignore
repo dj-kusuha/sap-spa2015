@@ -2,3 +2,4 @@ sap-spa2015/Library
 sap-spa2015/Temp
 *.csproj
 *.sln
+*.apk

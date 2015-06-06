@@ -423,6 +423,10 @@ namespace NCMB
 			private static void SendPush (string json, string message, bool dialog, int delayByMilliseconds)
 			{
 				#if UNITY_EDITOR
+					UnityEngine.Debug.Log( "EditorMode: Json = " + json );
+					UnityEngine.Debug.Log( "EditorMode: Message = " + message );
+					UnityEngine.Debug.Log( "EditorMode: Dialog = " + dialog );
+					UnityEngine.Debug.Log( "EditorMode: DelayByMilliseconds = " + delayByMilliseconds );
 				#elif UNITY_ANDROID
 					m_AJClass.CallStatic("sendPush", json, message, delayByMilliseconds, dialog);
 				#elif UNITY_IOS
