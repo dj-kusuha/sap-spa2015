@@ -4,3 +4,6 @@ sap-spa2015/Temp
 *.sln
 *.apk
 sap-spa2015/XcodeProject
+sap-spa2015/obj/
+sap-spa2015/Assets/UnityVS/
+sap-spa2015/Assets/UnityVS.meta
