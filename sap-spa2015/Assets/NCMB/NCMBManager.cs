@@ -162,6 +162,16 @@ namespace NCMB
 			{
 				if (!pause) {
 					ClearAfterOneFrame ();
+
+                    var push = new NCMBPush() {
+                        PushToIOS = true,
+                        PushToAndroid = false,
+                        Message = "checked",
+                        ContentAvailable = true,
+                        Category = "Checked",
+                    };
+
+                    push.SendPush();
 				}
 			}
 

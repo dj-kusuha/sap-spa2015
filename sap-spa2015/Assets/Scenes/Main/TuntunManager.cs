@@ -19,6 +19,14 @@ public class TuntunManager : MonoBehaviour
         this.node.SetData( this.selectFriendData );
     }
 
+
+    private void OnEnable() {
+        NCMBManager.onNotificationReceived += OnNotificationReceived;
+    }
+    private void OnDisable() {
+        NCMBManager.onNotificationReceived -= OnNotificationReceived;
+    }
+
     public void OnClickTuntunButton()
     {
         Debug.Log("OnClickTuntunButton");
@@ -46,6 +54,12 @@ public class TuntunManager : MonoBehaviour
 
     public void OnClickBackButton() {
         Application.LoadLevel( "Select" );
+    }
+
+    private void OnNotificationReceived( NCMBPushPayload payload ) {
+        if( payload.Message == "checked" ) {
+            Debug.Log( "checked!" );
+        }
     }
 }
 
