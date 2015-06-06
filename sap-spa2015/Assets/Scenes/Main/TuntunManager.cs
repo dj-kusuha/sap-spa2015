@@ -19,6 +19,7 @@ public class TuntunManager : MonoBehaviour
         var push = new NCMBPush()
         {
             PushToIOS = true,
+            PushToAndroid = false,
             Message = "testSendPush",
             BadgeIncrementFlag = true,
             Category = "INVITE_CATEGORY",

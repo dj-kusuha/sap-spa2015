@@ -32,8 +32,8 @@
 #import <OpenGLES/ES2/glext.h>
 
 #include "CrashReporter.h"
-#include "iPhone_OrientationSupport.h"
-#include "iPhone_Profiler.h"
+//#include "iPhone_OrientationSupport.h"
+//#include "iPhone_Profiler.h"
 
 #include "UI/Keyboard.h"
 #include "UI/UnityView.h"
