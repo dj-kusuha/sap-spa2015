@@ -9,10 +9,14 @@ public class TuntunManager : MonoBehaviour
     [SerializeField]
     private AudioSource tapSESource;
 
+    [SerializeField]
+    private Node node;
+
     private SelectManager.FriendData selectFriendData;
 
     private void Start() {
         this.selectFriendData = GameObject.FindObjectOfType<Node>().FriendData;
+        this.node.SetData( this.selectFriendData );
     }
 
     public void OnClickTuntunButton()
@@ -21,6 +25,9 @@ public class TuntunManager : MonoBehaviour
 
         // 回数インクリメント
         this.selectFriendData.sendTuntun++;
+
+        // 画面再設定
+        this.node.SetData( this.selectFriendData );
 
         // SE再生
         this.tapSESource.Play();
@@ -31,7 +38,7 @@ public class TuntunManager : MonoBehaviour
             PushToAndroid = false,
             Message = "tuntunさんからつんつんされています！",
             BadgeIncrementFlag = true,
-            Category = "INVITE_CATEGORY",
+            Category = "TUNTUN",
         };
 
         push.SendPush();

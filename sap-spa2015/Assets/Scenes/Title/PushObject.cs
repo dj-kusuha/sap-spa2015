@@ -57,6 +57,12 @@ public class PushObject : MonoBehaviour {
     /// </summary>
     void OnNotificationReceived( NCMBPushPayload payload ) {
         Debug.Log( "OnNotificationReceived" );
+
+        Debug.Log( "PushId : " + payload.PushId );
+        Debug.Log( "Massage : " + payload.Message );
+        foreach( KeyValuePair<string, object> kv in payload.UserInfo ) {
+            Debug.Log( "UserInfo: " + kv.Key + " / " + kv.Value );
+        }
     }
 
     /// <summary>
