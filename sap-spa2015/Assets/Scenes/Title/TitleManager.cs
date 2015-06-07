@@ -8,6 +8,7 @@ public class TitleManager : MonoBehaviour {
     }
 
 	public void OnClickStartButton() {
+		ClickSEManager.Instance.PlaySE();
 		Application.LoadLevel("Select");
 	}
 

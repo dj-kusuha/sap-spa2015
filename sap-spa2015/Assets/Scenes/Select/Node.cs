@@ -42,6 +42,9 @@ public class Node : MonoBehaviour {
 
         DontDestroyOnLoad( obj );
 
+        // SE再生
+        ClickSEManager.Instance.PlaySE();
+
         // つんつん画面へ
         Application.LoadLevel( "Main" );
     }

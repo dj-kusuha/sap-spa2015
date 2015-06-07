@@ -1159,15 +1159,15 @@ MonoBehaviour:
     name: "\u304B\u3093\u306E"
     sendTuntun: 0
     recvTuntun: 0
-  - sprite: {fileID: 21300000, guid: 95a333b9af98341f28733b2fe6e686f2, type: 3}
+  - sprite: {fileID: 21300000, guid: 2a344f86337c049ac804d0a76ae94407, type: 3}
     name: "\u3059\u305A\u304D"
     sendTuntun: 0
     recvTuntun: 0
-  - sprite: {fileID: 21300000, guid: 720854a234fd44a7b9942cfce7d992ba, type: 3}
+  - sprite: {fileID: 21300000, guid: 54ee26bbf2b6840f192a03063059e499, type: 3}
     name: "\u3084\u307E\u3060"
     sendTuntun: 0
     recvTuntun: 0
-  - sprite: {fileID: 21300000, guid: 5235245b18af04a9db62b5979aaec848, type: 3}
+  - sprite: {fileID: 21300000, guid: 767bda52323f940f1b97dc4f376f6017, type: 3}
     name: "\u3055\u3068\u3046"
     sendTuntun: 0
     recvTuntun: 0

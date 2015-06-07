@@ -97,7 +97,7 @@ public class TuntunManager : MonoBehaviour
         {
             PushToIOS = true,
             PushToAndroid = false,
-            Message = "tuntunさんからつんつんされています！",
+            Message = "たなかさんからつんつんされています！",
             BadgeIncrementFlag = true,
             Category = "TUNTUN",
         };
@@ -111,6 +111,8 @@ public class TuntunManager : MonoBehaviour
 
     public void OnClickBackButton()
     {
+        ClickSEManager.Instance.PlaySE();
+        
         Application.LoadLevel("Select");
     }
 
