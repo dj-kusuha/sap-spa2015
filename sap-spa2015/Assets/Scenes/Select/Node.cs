@@ -19,10 +19,10 @@ public class Node : MonoBehaviour {
     public void SetData( SelectManager.FriendData data ) {
         this.FriendData = data;
 
-        if( this.image != null ){
+        if( this.image != null && data.sprite != null ){
             this.image.sprite = data.sprite;
         }
-        if( this.nameText != null ) {
+        if( this.nameText != null && data.name != null ) {
             this.nameText.text = data.name;
         }
         if( this.sendText != null ) {

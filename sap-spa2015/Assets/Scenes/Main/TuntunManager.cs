@@ -31,9 +31,12 @@ public class TuntunManager : MonoBehaviour
 
     private void Start()
     {
-        SetChecked(false);
+        SetChecked(false, true);
 
         this.selectFriendData = GameObject.FindObjectOfType<Node>().FriendData;
+        if(this.selectFriendData == null){
+            this.selectFriendData = new SelectManager.FriendData();
+        }
         this.node.SetData(this.selectFriendData);
     }
 
@@ -60,9 +63,9 @@ public class TuntunManager : MonoBehaviour
     }
 
     private bool prevCheckedFlag;
-    private void SetChecked(bool checkedFlag)
+    private void SetChecked(bool checkedFlag, bool forceChenge = false)
     {
-        if (prevCheckedFlag != checkedFlag)
+        if (forceChenge || prevCheckedFlag != checkedFlag)
         {
             // 表示切り替え
             this.noCheckedObject.SetActive(!checkedFlag);

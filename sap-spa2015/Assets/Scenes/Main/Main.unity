@@ -513,6 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c169db9725dec54f8afb81299ed5187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 0}
   nameText: {fileID: 2101353084}
   sendText: {fileID: 1818468490}
   recvText: {fileID: 0}
@@ -1707,6 +1708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tapSESource: {fileID: 1974739838}
+  turnSESource: {fileID: 14208682}
   node: {fileID: 732662796}
   noCheckedObject: {fileID: 1513947173}
   checkedObject: {fileID: 1783223635}
