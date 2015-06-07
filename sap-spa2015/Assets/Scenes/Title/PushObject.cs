@@ -12,6 +12,8 @@ public class PushObject : MonoBehaviour {
     /////////////////////////ここから追加コード////////////////////////
     private static bool _isInitialized = false;
 
+    private static bool isSendPush = false;
+
     /// <summary>
     ///イベントリスナーの登録
     /// </summary>
@@ -47,6 +49,7 @@ public class PushObject : MonoBehaviour {
     void OnSendPush( string errorMessage ) {
         if( errorMessage == null ) {
             Debug.Log( "OnSendPushSucceeded" );
+            isSendPush = true;
         } else {
             Debug.Log( "OnSendPushFailed:" + errorMessage );
         }
@@ -60,6 +63,20 @@ public class PushObject : MonoBehaviour {
 
         Debug.Log( "PushId : " + payload.PushId );
         Debug.Log( "Massage : " + payload.Message );
+        
+        // 自分が何も送っていない、且つ届いたのがつんつんだったら、checkedを送る
+        if(!isSendPush && payload.Message != "checked"){
+        
+            var push = new NCMBPush() {
+                PushToIOS = true,
+                PushToAndroid = false,
+                Message = "checked",
+                ContentAvailable = true,
+                Category = "Checked",
+            };
+
+            push.SendPush();
+        }
     }
 
     /// <summary>

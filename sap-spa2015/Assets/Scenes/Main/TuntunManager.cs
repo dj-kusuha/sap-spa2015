@@ -22,6 +22,10 @@ public class TuntunManager : MonoBehaviour {
 
     private float timer;
 
+
+    private bool isTuntun;
+
+
     private void Start() {
         SetChecked( false );
 
@@ -75,6 +79,8 @@ public class TuntunManager : MonoBehaviour {
         };
 
         push.SendPush();
+        
+        this.isTuntun = true;
     }
 
     public void OnClickBackButton() {
@@ -82,11 +88,13 @@ public class TuntunManager : MonoBehaviour {
     }
 
     private void OnNotificationReceived( NCMBPushPayload payload ) {
-        if( payload.Message == "checked" ) {
+        if( this.isTuntun && payload.Message == "checked" ) {
             Debug.Log( "checked!" );
 
             SetChecked( true );
             this.timer = 180f;
+            
+            this.isTuntun = false;
         }
     }
 }
