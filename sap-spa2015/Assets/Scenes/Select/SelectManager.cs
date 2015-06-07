@@ -15,6 +15,10 @@ public class SelectManager : MonoBehaviour
     [SerializeField]
     private FriendData[] debugFriendData;
 
+    [Header("Texts")]
+    [SerializeField]
+    private UnityEngine.UI.Text totalTuntunText;
+    
     [Header("GameObjects")]
     [SerializeField]
     private GameObject contentObject;
@@ -26,15 +30,28 @@ public class SelectManager : MonoBehaviour
     [SerializeField]
     private GameObject nodePrefab;
 
+    private static FriendData[] nowFriendData;
+
+    public static int TotalTuntun{get;set;}
+
     // Use this for initialization
     void Start() {
+        // デバッグデータからコピー
+        if( nowFriendData == null ){
+            nowFriendData = new FriendData[this.debugFriendData.Length];
+            for(int i = 0; i < nowFriendData.Length; ++i){
+                nowFriendData[i] = this.debugFriendData[i];
+            }
+        }
+        
         // 既存のノードを拾ってデータ更新してから破棄
         {
             var node = GameObject.FindObjectOfType<Node>();
             if( node != null ) {
-                for( int i = 0; i < this.debugFriendData.Length; ++i ) {
-                    if( this.debugFriendData[ i ].name == node.FriendData.name ) {
-                        this.debugFriendData[ i ] = node.FriendData;
+                for( int i = 0; i < nowFriendData.Length; ++i ) {
+                    if( nowFriendData[ i ].name == node.FriendData.name ) {
+                        nowFriendData[ i ] = node.FriendData;
+                        TotalTuntun += node.FriendData.sendTuntun;
                         break;
                     }
                 }
@@ -47,7 +64,7 @@ public class SelectManager : MonoBehaviour
         // デバッグデータから生成する
         int cnt = 0;
         GameObject currentGroup = null;
-        for( int i = 0; i < this.debugFriendData.Length; ++i ) {
+        for( int i = 0; i < nowFriendData.Length; ++i ) {
             // 対象となるgroupがなかったら生成
             if( currentGroup == null ) {
                 currentGroup = (GameObject)Instantiate( this.groupPrefab );
@@ -58,7 +75,7 @@ public class SelectManager : MonoBehaviour
             var node = Instantiate( this.nodePrefab );
             node.transform.SetParent( currentGroup.transform );
             node.transform.localScale = this.nodePrefab.transform.localScale;
-            node.GetComponent<Node>().SetData( this.debugFriendData[ i ] );
+            node.GetComponent<Node>().SetData( nowFriendData[ i ] );
 
             // 個数上限を超えたらcurrentGroupをnullにしておく
             cnt++;
@@ -66,6 +83,9 @@ public class SelectManager : MonoBehaviour
                 currentGroup = null;
             }
         }
+        
+        // つんつん合計表示の更新
+        this.totalTuntunText.text = TotalTuntun.ToString("#,##0");
     }
 
 }

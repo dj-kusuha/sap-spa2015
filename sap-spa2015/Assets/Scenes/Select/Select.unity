@@ -443,7 +443,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1,500,000
+  m_Text: 0
 --- !u!222 &578490449
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1147,24 +1147,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugFriendData:
-  - name: "\u305F\u308D\u3046"
-    sendTuntun: 1234
-    recvTuntun: 5678
-  - name: "\u306F\u306A\u3053"
-    sendTuntun: 5000
-    recvTuntun: 6000
-  - name: "\u3084\u307E\u3060"
-    sendTuntun: 7890
-    recvTuntun: 1234567
-  - name: "\u3059\u305A\u304D"
-    sendTuntun: 7
-    recvTuntun: 2
-  - name: "\u3084\u307E\u3082\u3068"
-    sendTuntun: 7351684
-    recvTuntun: 4932516
-  - name: "\u3055\u3068\u3046"
-    sendTuntun: 12345
+  - name: "\u304F\u3057\u3060"
+    sendTuntun: 0
     recvTuntun: 0
+  - name: "\u3053\u3058\u307E"
+    sendTuntun: 0
+    recvTuntun: 0
+  - name: "\u304B\u3093\u306E"
+    sendTuntun: 0
+    recvTuntun: 0
+  - name: "\u3059\u305A\u304D"
+    sendTuntun: 0
+    recvTuntun: 0
+  - name: "\u3084\u307E\u3060"
+    sendTuntun: 0
+    recvTuntun: 0
+  - name: "\u3055\u3068\u3046"
+    sendTuntun: 0
+    recvTuntun: 0
+  totalTuntunText: {fileID: 578490448}
   contentObject: {fileID: 855677819}
   groupPrefab: {fileID: 150706, guid: 79e29fab4b808409d957ca57f0fab645, type: 2}
   nodePrefab: {fileID: 142726, guid: 26464e142927c4323a5f1eaf00e33aa9, type: 2}

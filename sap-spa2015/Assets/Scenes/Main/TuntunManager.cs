@@ -2,17 +2,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TuntunManager : MonoBehaviour {
+public class TuntunManager : MonoBehaviour
+{
 
+    [Header("Sounds")]
     [SerializeField]
     private AudioSource tapSESource;
+    [SerializeField]
+    private AudioSource turnSESource;
 
+    [Header("Node")]
     [SerializeField]
     private Node node;
 
-    [Header( "Check Objects" )]
-    [SerializeField]
-    private Button tuntunButton;
+    [Header("Check Objects")]
     [SerializeField]
     private GameObject noCheckedObject;
     [SerializeField]
@@ -26,51 +29,67 @@ public class TuntunManager : MonoBehaviour {
     private bool isTuntun;
 
 
-    private void Start() {
-        SetChecked( false );
+    private void Start()
+    {
+        SetChecked(false);
 
         this.selectFriendData = GameObject.FindObjectOfType<Node>().FriendData;
-        this.node.SetData( this.selectFriendData );
+        this.node.SetData(this.selectFriendData);
     }
 
-    private void Update() {
-        if( this.timer > 0 ) {
+    private void Update()
+    {
+        if (this.timer > 0)
+        {
             this.timer -= Time.deltaTime;
-            if( this.timer <= 0 ) {
-                SetChecked( false );
+            if (this.timer <= 0)
+            {
+                SetChecked(false);
             }
         }
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         NCMBManager.onNotificationReceived += OnNotificationReceived;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         NCMBManager.onNotificationReceived -= OnNotificationReceived;
     }
 
-
-    private void SetChecked( bool checkdFlag ) {
-        this.tuntunButton.enabled = !checkdFlag;
-        this.noCheckedObject.SetActive( !checkdFlag );
-        this.checkedObject.SetActive( checkdFlag );
+    private bool prevCheckedFlag;
+    private void SetChecked(bool checkedFlag)
+    {
+        if (prevCheckedFlag != checkedFlag)
+        {
+            // 表示切り替え
+            this.noCheckedObject.SetActive(!checkedFlag);
+            this.checkedObject.SetActive(checkedFlag);
+            // SE再生
+            this.turnSESource.Play();
+            // フラグ更新
+            this.prevCheckedFlag = checkedFlag;
+        }
     }
 
-    
-    public void OnClickTuntunButton() {
-        Debug.Log( "OnClickTuntunButton" );
+
+    public void OnClickTuntunButton()
+    {
+        Debug.Log("OnClickTuntunButton");
 
         // 回数インクリメント
         this.selectFriendData.sendTuntun++;
 
         // 画面再設定
-        this.node.SetData( this.selectFriendData );
+        this.node.SetData(this.selectFriendData);
 
         // SE再生
         this.tapSESource.Play();
 
-        var push = new NCMBPush() {
+        var push = new NCMBPush()
+        {
             PushToIOS = true,
             PushToAndroid = false,
             Message = "tuntunさんからつんつんされています！",
@@ -79,21 +98,24 @@ public class TuntunManager : MonoBehaviour {
         };
 
         push.SendPush();
-        
+
         this.isTuntun = true;
     }
 
-    public void OnClickBackButton() {
-        Application.LoadLevel( "Select" );
+    public void OnClickBackButton()
+    {
+        Application.LoadLevel("Select");
     }
 
-    private void OnNotificationReceived( NCMBPushPayload payload ) {
-        if( this.isTuntun && payload.Message == "checked" ) {
-            Debug.Log( "checked!" );
+    private void OnNotificationReceived(NCMBPushPayload payload)
+    {
+        if (this.isTuntun && payload.Message == "checked")
+        {
+            Debug.Log("checked!");
 
-            SetChecked( true );
+            SetChecked(true);
             this.timer = 180f;
-            
+
             this.isTuntun = false;
         }
     }
