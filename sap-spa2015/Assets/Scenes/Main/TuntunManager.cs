@@ -21,6 +21,10 @@ public class TuntunManager : MonoBehaviour
     [SerializeField]
     private GameObject checkedObject;
 
+    [Header("Others")]
+    [SerializeField]
+    private Text remindTimeText;
+
     private SelectManager.FriendData selectFriendData;
 
     private float timer;
@@ -45,9 +49,16 @@ public class TuntunManager : MonoBehaviour
         if (this.timer > 0)
         {
             this.timer -= Time.deltaTime;
+            
             if (this.timer <= 0)
             {
                 SetChecked(false);
+            } else {
+                var tmpTime = this.timer + 1;
+                this.remindTimeText.text = string.Format("あと{0}{1}つんつんできません",
+                    ((int)tmpTime / 60) != 0 ? ((int)tmpTime / 60).ToString() + "分" : string.Empty,
+                    ((int)tmpTime % 60) != 0 ? ((int)tmpTime % 60).ToString() + "秒" : string.Empty
+                );
             }
         }
     }

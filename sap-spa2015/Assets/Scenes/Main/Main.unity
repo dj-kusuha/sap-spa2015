@@ -823,6 +823,75 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1079379270}
+--- !u!1 &1382532272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 186334, guid: 26464e142927c4323a5f1eaf00e33aa9, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1382532275}
+  - 222: {fileID: 1382532274}
+  - 114: {fileID: 1382532273}
+  m_Layer: 5
+  m_Name: RemindTimerText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1382532273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11432916, guid: 26464e142927c4323a5f1eaf00e33aa9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382532272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 128
+    m_Alignment: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u3042\u3068\uFF13\u5206\u3064\u3093\u3064\u3093\u3067\u304D\u307E\u305B\u3093"
+--- !u!222 &1382532274
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22268238, guid: 26464e142927c4323a5f1eaf00e33aa9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382532272}
+--- !u!224 &1382532275
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22472614, guid: 26464e142927c4323a5f1eaf00e33aa9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382532272}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1783223636}
+  m_RootOrder: 2
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 480, y: 200}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1 &1513947173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1106,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u3042\u306A\u305F\u306E\u3064\u3093\u3064\u3093\u306B\n\u76F8\u624B\u304C\u6C17\u3065\u304D\u307E\u3057\u305F\uFF01\n\n3\u5206\u9593\u3064\u3093\u3064\u3093\u3067\u304D\u307E\u305B\u3093"
+  m_Text: "\u3042\u306A\u305F\u306E\u3064\u3093\u3064\u3093\u306B\n\u76F8\u624B\u304C\u6C17\u3065\u304D\u307E\u3057\u305F\uFF01"
 --- !u!222 &1672655051
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1134,6 +1203,7 @@ RectTransform:
   m_Children:
   - {fileID: 2008699462}
   - {fileID: 1672655049}
+  - {fileID: 1382532275}
   m_Father: {fileID: 1079379271}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
@@ -1553,3 +1623,4 @@ MonoBehaviour:
   node: {fileID: 732662796}
   noCheckedObject: {fileID: 1513947173}
   checkedObject: {fileID: 1783223635}
+  remindTimeText: {fileID: 1382532273}
