@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c169db9725dec54f8afb81299ed5187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 11436624}
   nameText: {fileID: 11423816}
   sendText: {fileID: 11432916}
   recvText: {fileID: 11467044}

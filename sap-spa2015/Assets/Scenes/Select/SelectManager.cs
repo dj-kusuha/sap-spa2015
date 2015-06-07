@@ -6,6 +6,7 @@ public class SelectManager : MonoBehaviour
 {
     [System.Serializable]
     public class FriendData {
+        public Sprite sprite;
         public string name;
         public int sendTuntun;
         public int recvTuntun;
