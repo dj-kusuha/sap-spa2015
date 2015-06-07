@@ -103,6 +103,8 @@ public class TuntunManager : MonoBehaviour
         };
 
         push.SendPush();
+        
+        PushObject.isSendTuntunPush = true;
 
         this.isTuntun = true;
     }
