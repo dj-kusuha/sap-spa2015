@@ -63,15 +63,17 @@ public class TuntunManager : MonoBehaviour
     }
 
     private bool prevCheckedFlag;
-    private void SetChecked(bool checkedFlag, bool forceChenge = false)
+    private void SetChecked(bool checkedFlag, bool forceChange = false)
     {
-        if (forceChenge || prevCheckedFlag != checkedFlag)
+        if (forceChange || prevCheckedFlag != checkedFlag)
         {
             // 表示切り替え
             this.noCheckedObject.SetActive(!checkedFlag);
             this.checkedObject.SetActive(checkedFlag);
             // SE再生
-            this.turnSESource.Play();
+            if(!forceChange) {
+                this.turnSESource.Play();
+            }
             // フラグ更新
             this.prevCheckedFlag = checkedFlag;
         }
